@@ -12,10 +12,16 @@ function App() {
   const [email, setEmail] = useState('');
 
   // Création de la méthode qui va nous permettre d'écouter l'événement sur le bouton
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(email);
+    // requête vers l'api
+    // async/await pour attendre que la réponse arrive avant de passer à la ligne suivante
+    const response = await api.post('/sessions', { email })
+
+    console.log(response); 
+    // si on fait un console.log à ce niveau on va arriver à une erreur de CORS
+    // pour éviter cela, on doit installer les CORS dans notre backend
 
     }
 
