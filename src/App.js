@@ -19,7 +19,12 @@ function App() {
     // async/await pour attendre que la réponse arrive avant de passer à la ligne suivante
     const response = await api.post('/sessions', { email })
 
-    console.log(response); 
+    const { _id } = response.data;
+
+    // Pour qu'on sache quel utilisateur est train de réserver un café, on doit stocker son id
+    localStorage.setItem('user', _id);
+
+    //console.log(response); 
     // si on fait un console.log à ce niveau on va arriver à une erreur de CORS
     // pour éviter cela, on doit installer les CORS dans notre backend
 
