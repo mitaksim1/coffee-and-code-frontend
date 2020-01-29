@@ -6,6 +6,11 @@ import './App.css';
 import logo from './Assets/coffee-logo2.png';
 
 function App() {
+  // Création de la méthode qui va nous permettre d'écouter l'événement sur le bouton
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log('Hello');
+  }
   return (
     <div className="container">
       <img className="logo" src={logo} alt="Coffee&Code"/>
@@ -13,7 +18,7 @@ function App() {
       <div className="content">
         <p>Réservez un <strong>Coffee Bar</strong> pour coder vos projets et rencontrez d'autres <strong>développeurs</strong> pour partager vos idées</p>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="email">E-MAIL *</label>
           <input 
           type="email" 
