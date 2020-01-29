@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-export default function Login() {
+export default function Login({ history }) {
 
   // Stocker une information dans le state
   // email = valeur de l'input
@@ -20,17 +20,17 @@ export default function Login() {
 
     // Pour qu'on sache quel utilisateur est train de réserver un café, on doit stocker son id
     localStorage.setItem('user', _id);
-
-    //console.log(response); 
-    // si on fait un console.log à ce niveau on va arriver à une erreur de CORS
-    // pour éviter cela, on doit installer les CORS dans notre backend
+    
+    // Une fois connecté, on veut que l'user soit dirigé vers la page dashboard où apparaîtrat tous les cafés 
+    // history concerne la navigation
+    history.push('/dashboard');
     }
 
     // evénement qui change la valeur de l'email
     function handleEmailChange(event) {
         setEmail(event.target.value);
     }
-    
+
     return (
         <>
         <p>Réservez un <strong>Coffee Bar</strong> pour coder vos projets et rencontrez d'autres <strong>développeurs</strong> pour partager vos idées</p>
