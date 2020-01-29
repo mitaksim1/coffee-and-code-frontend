@@ -4,6 +4,8 @@ import './App.css';
 
 // Imports
 import logo from './Assets/coffee-logo2.png';
+import Routes from './routes';
+
 
 function App() {
   // Stocker une information dans le state
